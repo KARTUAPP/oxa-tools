@@ -17,9 +17,9 @@ ENVIRONMENT=bvt
 
 # the site certificate files (.crt & .key) have to be named after the BASE_URL value
 BASE_URL=cloudswyft.com
-LMS_URL=mytest.$BASE_URL
-CMS_URL=mytestms.$BASE_URL
-PREVIEW_URL=mytestpreview.$BASE_URL
+LMS_URL=kartuapp.$BASE_URL
+CMS_URL=kartuappms.$BASE_URL
+PREVIEW_URL=kartuapppreview.$BASE_URL
 
 # deployment configuration
 # URL-building will be replaced by the use of LMS_URL | CMS_URL (above)
@@ -46,9 +46,9 @@ EDXAPP_EMAIL_TECH_SUPPORT="${PLATFORM_EMAIL}"
 EDXAPP_EMAIL_UNIVERSITY="${PLATFORM_EMAIL}"
 
 # config/versions.yml
-CONFIGURATION_REPO=https://github.com/csmytest/edx-configuration.git
+CONFIGURATION_REPO=https://github.com/kartuapp/edx-configuration.git
 CONFIGURATION_VERSION=oxa/master.fic
-PLATFORM_REPO=https://github.com/csmytest/edx-platform.git
+PLATFORM_REPO=https://github.com/kartuapp/edx-platform.git
 PLATFORM_VERSION=oxa/master.fic
 THEME_REPO=https://github.com/Microsoft/edx-theme.git
 THEME_VERSION=oxa/master.fic
