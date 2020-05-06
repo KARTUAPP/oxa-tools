@@ -196,7 +196,7 @@ install-gettext()
 # Install Mongo Shell
 #############################################################################
 
-install-mongodb-shell()
+install-mongodb-shell() #Error 1
 {
     if type mongo >/dev/null 2>&1; then
         log "MongoDB Shell is already installed"
@@ -209,10 +209,18 @@ install-mongodb-shell()
 
         if (( $(echo "$SHORT_RELEASE_NUMBER > 16" | bc -l) ))
         then
-            apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+            # sudo apt-key list | \
+            # grep "expired: " | \
+            # sed -ne 's|pub .*/\([^ ]*\) .*|\1|gp' | \
+            # xargs -n1 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys
+            apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0xEA312927
             echo "deb ${PACKAGE_URL} "${SHORT_CODENAME}"/mongodb-org/3.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.2.list
         else
-            apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+            apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0x7F0CEB10
+            # sudo apt-key list | \
+            # grep "expired: " | \
+            # sed -ne 's|pub .*/\([^ ]*\) .*|\1|gp' | \
+            # xargs -n1 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys
             echo "deb ${PACKAGE_URL} "${SHORT_CODENAME}"/mongodb-org/3.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.0.list
         fi
 
